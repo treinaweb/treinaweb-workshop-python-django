@@ -1,0 +1,93 @@
+{% load static %}
+
+<header class="header">
+    <div class="container">
+        <!-- Desktop -->
+        <div class="menu-desktop">
+            <a href="{% url "core:home" %}">
+                <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url "core:home" %}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url "core:about" %}">
+                            SObre
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./lista-servicos.html">
+                            Lista de Serviços
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./contato.html">
+                            Contato
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-green" href="./contato.html" style="margin: 0;display: inline;">
+                            Seja um prestador
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- mobile -->
+        <div class="mobile">
+
+            <div class="menu-mobile">
+                <a href="{% url "core:home" %}">
+                    <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
+                </a>
+                <img src="{% static "img/open-menu.svg" %}" alt="Logo TW Ninjas" width="30px" id="open-menu">
+
+            </div>
+
+            <div class="menu-hamburguer">
+                <div class="header-hamburguer">
+                    <a href="{% url "core:home" %}">
+                        <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
+                    </a>
+                    <img src="{% static "img/close-menu.svg" %}" alt="Logo TW Ninjas" width="30px" id="close-menu">
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url "core:home" %}">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url "core:about" %}">
+                                SObre
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./lista-servicos.html">
+                                Lista de Serviços
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./contato.html">
+                                Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-green" href="./contato.html">
+                                Seja um prestador
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="backdrop"></div>
+        </div>
+
+    </div>
+</header>

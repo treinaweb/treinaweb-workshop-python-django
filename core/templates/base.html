@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="https://www.treinaweb.com.br/assets/images/apple-touch-icon.png" rel="apple-touch-icon"
+        sizes="180x180" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-32x32.png" rel="icon"
+        sizes="32x32" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-16x16.png" rel="icon"
+        sizes="16x16" />
+
+    <!-- Fontes -->
+    <link rel="stylesheet" href="{% static "style/fonts.css" %}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static "style/style.css" %}">
+
+    <title>TW Ninjas</title>
+</head>
+
+<body>
+    {% include "fragments/_header.html" %}
+
+    {% block content %}{% endblock content %}
+
+    {% include "fragments/_footer.html" %}
+
+    <script src="{% static "javascript/menu-mobile.js" %}"></script>
+</body>
+
+</html>
