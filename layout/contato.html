@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="https://www.treinaweb.com.br/assets/images/apple-touch-icon.png" rel="apple-touch-icon"
+        sizes="180x180" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-32x32.png" rel="icon"
+        sizes="32x32" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-16x16.png" rel="icon"
+        sizes="16x16" />
+
+    <!-- Fontes -->
+    <link rel="stylesheet" href="./src/style/fonts.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <title>TW Ninjas</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <!-- Desktop -->
+            <div class="menu-desktop">
+                <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="./index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./sobre.html">
+                                SObre
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./lista-servicos.html">
+                                Lista de Serviços
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./contato.html">
+                                Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-green" href="./contato.html" style="margin: 0;display: inline;">
+                                Seja um prestador
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- mobile -->
+            <div class="mobile">
+
+                <div class="menu-mobile">
+                    <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                    <img src="./src/img/open-menu.svg" alt="Logo TW Ninjas" width="30px" id="open-menu">
+
+                </div>
+
+                <div class="menu-hamburguer">
+                    <div class="header-hamburguer">
+                        <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                        <img src="./src/img/close-menu.svg" alt="Logo TW Ninjas" width="30px" id="close-menu">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="./index.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./sobre.html">
+                                    SObre
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./lista-servicos.html">
+                                    Lista de Serviços
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./contato.html">
+                                    Contato
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-green" href="./contato.html">
+                                    Seja um prestador
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="backdrop"></div>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- info página -->
+        <section class="pagina-info">
+            <div class="container">
+                <p>
+                    Entre em contato com os nossos ninjas
+                </p>
+            </div>
+        </section>
+        
+        <section class="contato">
+            <div class="container">
+                <div class="contato-grid">
+                    <div class="contato-item">
+                        <div class="contato-icone">
+                            <img src="./src/img/icone-tel.svg" alt="">
+                        </div>
+                        <h3>Contato telefônico</h3>
+                        <p>
+                            (11) 1234-5678<br>
+                            (11) 9-1234-5678
+                        </p>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-icone">
+                            <img src="./src/img/icone-mail.svg" alt="">
+                        </div>
+                        <h3>Contato por e-mail</h3>
+                        <p>
+                            contato@twninjas.com.br
+                        </p>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-icone">
+                            <img src="./src/img/icone-suporte.svg" alt="">
+                        </div>
+                        <h3>Suporte ninja</h3>
+                        <p>
+                            Das 08:00h às 20:00h<br>
+                            De segunda à sexta-feira
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contato Form -->
+        <section class="form-contato-secao">
+            <div class="container">
+                <h2>Entre em contato</h2>
+                <div class="divisor-form">
+                    <div class="status"></div>
+                </div>
+                <form class="form-contato">
+                    <div class="form-item nome">
+                        <label for="nome">Nome Completo*</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome">
+                    </div>
+                    <div class="form-item email">
+                        <label for="email">E-mail*</label>
+                        <input type="text" id="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="form-item cel">
+                        <label for="cel">Telefone celular*</label>
+                        <input type="text" id="cel" placeholder="Digite o seu número">
+                    </div>
+                    <div class="form-item endereco">
+                        <label for="endereco">Endereco*</label>
+                        <input type="text" id="endereco" placeholder="Digite seu endereço">
+                    </div>
+                    <div class="form-item mensagem">
+                        <label for="mensagem">Mensagem*</label>
+                        <textarea name="mensagem" id="mensagem" rows="13"
+                            placeholder="Deixe sua mensagem para os nossos ninjas"></textarea>
+                    </div>
+                    <div class="btn-green">ENVIAR MENSAGEM</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <img src="./src/img/twninjas-logo-claro.svg" alt="" width="">
+                <p>Todos os direitos reservados. (C) 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/javascript/menu-mobile.js"></script>
+</body>
+
+</html>

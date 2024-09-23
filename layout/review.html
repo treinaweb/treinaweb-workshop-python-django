@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="https://www.treinaweb.com.br/assets/images/apple-touch-icon.png" rel="apple-touch-icon"
+        sizes="180x180" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-32x32.png" rel="icon"
+        sizes="32x32" />
+    <link type="image/png" href="https://www.treinaweb.com.br/assets/images/favicon-16x16.png" rel="icon"
+        sizes="16x16" />
+
+    <!-- Fontes -->
+    <link rel="stylesheet" href="./src/style/fonts.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <title>TW Ninjas</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <!-- Desktop -->
+            <div class="menu-desktop">
+                <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="./index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./sobre.html">
+                                SObre
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./lista-servicos.html">
+                                Lista de Serviços
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./contato.html">
+                                Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-green" href="./contato.html" style="margin: 0;display: inline;">
+                                Seja um prestador
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- mobile -->
+            <div class="mobile">
+
+                <div class="menu-mobile">
+                    <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                    <img src="./src/img/open-menu.svg" alt="Logo TW Ninjas" width="30px" id="open-menu">
+
+                </div>
+
+                <div class="menu-hamburguer">
+                    <div class="header-hamburguer">
+                        <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                        <img src="./src/img/close-menu.svg" alt="Logo TW Ninjas" width="30px" id="close-menu">
+                    </div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="./index.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./sobre.html">
+                                    SObre
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./lista-servicos.html">
+                                    Lista de Serviços
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./contato.html">
+                                    Contato
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-green" href="./contato.html">
+                                    Seja um prestador
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="backdrop"></div>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- info página -->
+        <section class="pagina-info">
+            <div class="container">
+                <p>
+                    Avaliar serviço
+                </p>
+            </div>
+        </section>
+        <!-- Contato Form -->
+        <section class="avaliacao">
+            <div class="container">
+                <h2>Avaliação</h2>
+                <div class="divisor-form">
+                    <div class="status"></div>
+                </div>
+                <div class="avaliar-grid">
+                    <div class="avaliar-info">
+                        <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/sd.jpg" alt=""
+                            width="100%">
+                        <div class="avaliar-bloco">
+                            <img src="https://github.com/elton-fonseca.png" alt="" class="ft-usuario">
+                            <h3>Elton Fonseca</h3>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quod, sequi omnis, distinctio
+                            sint possimus fugiat nesciunt enim cumque doloribus maiores doloremque repudiandae excepturi
+                            necessitatibus ratione aliquam recusandae officia rem!
+                        </p>
+                    </div>
+                    <form id="rating-form">
+                        <textarea id="review-text" placeholder="Deixe seu depoimento..." rows="19"></textarea>
+                        <input type="hidden" id="rating-value" name="rating" value="">
+                        <div class="rating-buttom">
+                            <div class="star-rating">
+                                <img src="./src/img/star-orange.svg" alt="1 estrela" data-value="1">
+                                <img src="./src/img/star-orange.svg" alt="2 estrelas" data-value="2">
+                                <img src="./src/img/star-orange.svg" alt="3 estrelas" data-value="3">
+                                <img src="./src/img/star-orange.svg" alt="4 estrelas" data-value="4">
+                                <img src="./src/img/star-orange.svg" alt="5 estrelas" data-value="5">
+                            </div>
+                            <button class="btn-green" type="submit">Enviar Avaliação</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <img src="./src/img/twninjas-logo-claro.svg" alt="" width="">
+                <p>Todos os direitos reservados. (C) 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/javascript/menu-mobile.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.star-rating img');
+            const ratingValue = document.getElementById('rating-value');
+            let selectedRating = 0;
+
+            stars.forEach((star, index) => {
+                star.addEventListener('mouseover', () => {
+                    highlightStars(index);
+                });
+
+                star.addEventListener('click', () => {
+                    selectedRating = index + 1;
+                    ratingValue.value = selectedRating;
+                    setSelectedStars(selectedRating);
+                });
+
+                star.addEventListener('mouseout', () => {
+                    if (selectedRating > 0) {
+                        setSelectedStars(selectedRating);
+                    } else {
+                        resetStars();
+                    }
+                });
+            });
+
+            function highlightStars(index) {
+                resetStars();
+                for (let i = 0; i <= index; i++) {
+                    stars[i].style.filter = 'none';
+                }
+            }
+
+            function resetStars() {
+                stars.forEach(star => {
+                    star.style.filter = 'grayscale(100%)';
+                    star.classList.remove('selected');
+                });
+            }
+
+            function setSelectedStars(rating) {
+                resetStars();
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('selected');
+                    stars[i].style.filter = 'none';
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

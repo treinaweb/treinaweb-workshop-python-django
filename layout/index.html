@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -16,10 +14,10 @@
         sizes="16x16" />
 
     <!-- Fontes -->
-    <link rel="stylesheet" href="{% static "style/fonts.css" %}">
+    <link rel="stylesheet" href="./src/style/fonts.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static "style/style.css" %}">
+    <link rel="stylesheet" href="./src/style/style.css">
 
     <title>TW Ninjas</title>
 </head>
@@ -29,13 +27,11 @@
         <div class="container">
             <!-- Desktop -->
             <div class="menu-desktop">
-                <a href="{% url "core:home" %}">
-                    <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
-                </a>
+                <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
                 <nav>
                     <ul>
                         <li>
-                            <a href="{% url "core:home" %}">
+                            <a href="./index.html">
                                 Home
                             </a>
                         </li>
@@ -67,24 +63,20 @@
             <div class="mobile">
 
                 <div class="menu-mobile">
-                    <a href="{% url "core:home" %}">
-                        <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
-                    </a>
-                    <img src="{% static "img/open-menu.svg" %}" alt="Logo TW Ninjas" width="30px" id="open-menu">
+                    <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                    <img src="./src/img/open-menu.svg" alt="Logo TW Ninjas" width="30px" id="open-menu">
 
                 </div>
 
                 <div class="menu-hamburguer">
                     <div class="header-hamburguer">
-                        <a href="{% url "core:home" %}">
-                            <img src="{% static "img/twninjas-logo.svg" %}" alt="Logo TW Ninjas">
-                        </a>
-                        <img src="{% static "img/close-menu.svg" %}" alt="Logo TW Ninjas" width="30px" id="close-menu">
+                        <a href="./index.html"><img src="./src/img/twninjas-logo.svg" alt="Logo TW Ninjas"></a>
+                        <img src="./src/img/close-menu.svg" alt="Logo TW Ninjas" width="30px" id="close-menu">
                     </div>
                     <nav>
                         <ul>
                             <li>
-                                <a href="{% url "core:home" %}">
+                                <a href="./index.html">
                                     Home
                                 </a>
                             </li>
@@ -266,7 +258,7 @@
             <div class="porque-grid">
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -275,7 +267,7 @@
 
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -284,7 +276,7 @@
 
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -293,7 +285,7 @@
 
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -302,7 +294,7 @@
 
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -311,7 +303,7 @@
 
                 <div class="porque-item">
                     <div class="porque-img">
-                        <img src="{% static "img/icone-servico.svg" %}" alt="">
+                        <img src="./src/img/icone-servico.svg" alt="">
                     </div>
                     <h3 class="porque-servico-titulo">Service Commitment</h3>
                     <p class="porque-servico-descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -324,13 +316,13 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <img src="{% static "img/twninjas-logo-claro.svg" %}" alt="" width="">
+                <img src="./src/img/twninjas-logo-claro.svg" alt="" width="">
                 <p>Todos os direitos reservados. (C) 2024</p>
             </div>
         </div>
     </footer>
 
-    <script src="{% static "javascript/menu-mobile.js" %}"></script>
+    <script src="./src/javascript/menu-mobile.js"></script>
 </body>
 
 </html>
