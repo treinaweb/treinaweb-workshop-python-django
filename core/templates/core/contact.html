@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <!-- info página -->
+    <section class="pagina-info">
+        <div class="container">
+            <p>
+                Entre em contato com os nossos ninjas
+            </p>
+        </div>
+    </section>
+    
+    <section class="contato">
+        <div class="container">
+            <div class="contato-grid">
+                <div class="contato-item">
+                    <div class="contato-icone">
+                        <img src="{% static "img/icone-tel.svg" %}" alt="">
+                    </div>
+                    <h3>Contato telefônico</h3>
+                    <p>
+                        (11) 1234-5678<br>
+                        (11) 9-1234-5678
+                    </p>
+                </div>
+                <div class="contato-item">
+                    <div class="contato-icone">
+                        <img src="{% static "img/icone-mail.svg" %}" alt="">
+                    </div>
+                    <h3>Contato por e-mail</h3>
+                    <p>
+                        contato@twninjas.com.br
+                    </p>
+                </div>
+                <div class="contato-item">
+                    <div class="contato-icone">
+                        <img src="{% static "img/icone-suporte.svg" %}" alt="">
+                    </div>
+                    <h3>Suporte ninja</h3>
+                    <p>
+                        Das 08:00h às 20:00h<br>
+                        De segunda à sexta-feira
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contato Form -->
+    <section class="form-contato-secao">
+        <div class="container">
+            <h2>Entre em contato</h2>
+            <div class="divisor-form">
+                <div class="status"></div>
+            </div>
+            <form class="form-contato" method="POST">
+                {% csrf_token %}
+
+                <div class="form-item nome">
+                    <label for="nome">Nome Completo*</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-item email">
+                    <label for="email">E-mail*</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-item cel">
+                    <label for="cel">Telefone celular*</label>
+                    {{ form.phone }}
+                </div>
+                <div class="form-item endereco">
+                    <label for="endereco">Endereco*</label>
+                    {{ form.address }}
+                </div>
+                <div class="form-item mensagem">
+                    <label for="mensagem">Mensagem*</label>
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn-green">ENVIAR MENSAGEM</button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock content %}
