@@ -17,32 +17,34 @@
             <div class="divisor-form">
                 <div class="status"></div>
             </div>
-            <form class="form-contato">
+            <form class="form-contato" method="POST">
+                {% csrf_token %}
+
                 <div class="form-item nome">
                     <label for="nome">Nome*</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome">
+                    {{ form.first_name }}
                 </div>
                 <div class="form-item sobrenome">
                     <label for="nome">Sobrenome*</label>
-                    <input type="text" id="nome" placeholder="Digite seu sobrenome">
+                    {{ form.last_name }}
                 </div>
                 <div class="form-item email">
                     <label for="email">E-mail*</label>
-                    <input type="text" id="email" placeholder="Digite seu e-mail">
+                    {{ form.email }}
                 </div>
                 <div class="form-item cel">
-                    <label for="cel">Contato telefônico*</label>
-                    <input type="text" id="cel" placeholder="Digite o seu número">
+                    <label for="cel">Usuário*</label>
+                    {{ form.username }}
                 </div>
                 <div class="form-item senha">
                     <label for="senha">Senha*</label>
-                    <input type="text" id="senha" placeholder="Digite sua senha">
+                    {{ form.password1 }}
                 </div>
                 <div class="form-item confirmar-senha">
                     <label for="confirmar-senha">Confirmar senha*</label>
-                    <input type="text" id="confirmar-senha" placeholder="Confirme sua senha">
+                    {{ form.password2 }}
                 </div>
-                <button class="btn-green">ENVIAR</button>
+                <button class="btn-green" type="submit">ENVIAR</button>
             </form>
         </div>
     </section>
