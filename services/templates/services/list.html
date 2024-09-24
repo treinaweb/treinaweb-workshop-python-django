@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- info página -->
+<section class="pagina-info">
+    <div class="container">
+        <p>
+            Nossa lista de melhores serviços
+        </p>
+    </div>
+</section>
+
+<!-- Busca Serviço -->
+<section class="busca">
+    <div class="container">
+        <div class="busca-item"></div>
+    </div>
+</section>
+
+<!-- filtro -->
+<section class="filtro">
+    <div class="container">
+        <form class="search-banner">
+            <select name="" id="">
+                <option value="sp" selected>São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="sp">São Paulo</option>
+                <option value="sp">São Paulo</option>
+            </select>
+            <div class="filtro-buttons">
+                <div class="search-style">
+                    <label for="search">
+                        <img src="./src/img/icon-search.svg" alt="" width="20px">
+                    </label>
+                    <input type="text" name="" id="search" placeholder="O que você está procurando...">
+                </div>
+                <button class="btn-green">
+                    Buscar
+                </button>
+            </div>
+        </form>
+
+        <p class="resultado-texto"><span>1280</span> resultados para "<span>Serviço de programação</span>"</p>
+
+        <!-- Serviços -->
+        <div class="servicos-grid">
+            {% for service in services %}
+            <div class="servico-item">
+                <img src="{{ service.picture.url }}" alt="" width="100%"
+                    class="img-destaque">
+                <div class="servico-body">
+                    <div class="avatar">
+                        <img src="{{ service.user.profile.avatar.url }}" alt="Foto professor" width="45px" class="img-user">
+                        <p>{{ service.user.get_full_name }}</p>
+                    </div>
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                    <a href="" class="servico-link">Iniciando em</a><span> R${{ service.price }}</span>
+                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            <a disabled href="">&#60;</a>
+            <a href="">&#62;</a>
+        </div>
+    </div>
+</section>
+{% endblock content %}
