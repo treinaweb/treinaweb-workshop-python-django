@@ -40,11 +40,11 @@
             </div>
         </form>
 
-        <p class="resultado-texto"><span>1280</span> resultados para "<span>Serviço de programação</span>"</p>
+        <p class="resultado-texto"><span>{{ page_obj.paginator.count }}</span> resultados</p>
 
         <!-- Serviços -->
         <div class="servicos-grid">
-            {% for service in services %}
+            {% for service in page_obj %}
             <div class="servico-item">
                 <img src="{{ service.picture.url }}" alt="" width="100%"
                     class="img-destaque">
@@ -63,8 +63,17 @@
         </div>
 
         <div class="pagination">
-            <a disabled href="">&#60;</a>
-            <a href="">&#62;</a>
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&#60;</a>
+            {% else %}
+            <a disabled href="#">&#60;</a>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">&#62;</a>
+            {% else %}
+            <a disabled href="#">&#62;</a>
+            {% endif %}            
         </div>
     </div>
 </section>

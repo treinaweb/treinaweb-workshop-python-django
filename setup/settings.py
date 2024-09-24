@@ -142,3 +142,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 CONTACT_EMAIL = config("CONTACT_EMAIL")
+
+PAGE_SIZE = config("PAGE_SIZE", default=6)
