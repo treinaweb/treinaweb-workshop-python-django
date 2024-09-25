@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Count
 
 from services.models import Service
 from .forms import ContactForm
@@ -11,7 +12,13 @@ def home(request):
         .distinct()
     )
     cities = [city["user__profile__city"] for city in cities]
-    return render(request, "core/home.html", {"cities": cities})
+
+    top_services = Service.objects.annotate(
+        order_count=Count("service_orders")
+    ).order_by("-order_count")[:6]
+    return render(
+        request, "core/home.html", {"cities": cities, "top_services": top_services}
+    )
 
 
 def about(request):

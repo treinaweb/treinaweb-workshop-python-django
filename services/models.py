@@ -11,7 +11,7 @@ class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="services")
     picture = models.ImageField(upload_to=service_upload_to)
     mean_rating = models.DecimalField(
         max_digits=3, decimal_places=2, default=0, editable=False
@@ -34,7 +34,9 @@ class ServiceOrder(models.Model):
         FINISHED = "FINISHED", "Concluída"
 
     code = models.UUIDField(default=uuid4, editable=False)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    service = models.ForeignKey(
+        Service, on_delete=models.CASCADE, related_name="service_orders"
+    )
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
@@ -61,7 +63,9 @@ class ServiceOrder(models.Model):
 
 
 class ServiceOrderReview(models.Model):
-    service_order = models.ForeignKey(ServiceOrder, on_delete=models.CASCADE)
+    service_order = models.ForeignKey(
+        ServiceOrder, on_delete=models.CASCADE, related_name="reviews"
+    )
     rating = models.PositiveSmallIntegerField()
     comment = models.TextField()
 

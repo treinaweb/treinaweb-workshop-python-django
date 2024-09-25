@@ -44,96 +44,22 @@
             conteúdo legível de uma página ao observar seu layout.
         </p>
         <div class="servicos-grid">
+            {% for service in top_services %}
             <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
+                <img src="{{ service.picture.url }}" alt="" width="100%"
                     class="img-destaque">
                 <div class="servico-body">
                     <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
+                        <img src="{{ service.user.profile.avatar.url }}" alt="Foto professor" width="45px" class="img-user">
+                        <p>{{ service.user.get_full_name }}</p>
                     </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                    <a href="" class="servico-link">Iniciando em</a><span> R$ {{ service.price }}</span>
+                    <a href="{% url "services:detail" pk=service.pk %}" class="servico-agendar">Ver detalhes</a>
                 </div>
             </div>
-            <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
-                    class="img-destaque">
-                <div class="servico-body">
-                    <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
-                    </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                </div>
-            </div>
-            <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
-                    class="img-destaque">
-                <div class="servico-body">
-                    <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
-                    </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                </div>
-            </div>
-            <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
-                    class="img-destaque">
-                <div class="servico-body">
-                    <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
-                    </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                </div>
-            </div>
-            <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
-                    class="img-destaque">
-                <div class="servico-body">
-                    <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
-                    </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                </div>
-            </div>
-            <div class="servico-item">
-                <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt="" width="100%"
-                    class="img-destaque">
-                <div class="servico-body">
-                    <div class="avatar">
-                        <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px" class="img-user">
-                        <p>Cleyson Lima</p>
-                    </div>
-                    <h3>Programação Front-end</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                    <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
