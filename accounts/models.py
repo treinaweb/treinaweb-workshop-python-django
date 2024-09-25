@@ -13,6 +13,10 @@ class UserProfile(models.Model):
     state = models.CharField(max_length=2)
     about = models.TextField()
     avatar = models.ImageField(upload_to=avatar_upload_to)
+    mean_rating = models.DecimalField(
+        max_digits=3, decimal_places=2, default=0, editable=False
+    )
+    rating_count = models.PositiveIntegerField(default=0, editable=False)
 
     def __str__(self) -> str:
         return self.user.username

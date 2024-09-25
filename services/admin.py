@@ -4,12 +4,21 @@ from django.http import HttpRequest
 from django.core.mail import send_mail
 from django.conf import settings
 
-from .models import Service, ServiceOrder
+from .models import Service, ServiceOrder, ServiceOrderReview
+
+admin.site.register(ServiceOrderReview)
 
 
 @admin.register(ServiceOrder)
 class ServiceOrderAdmin(admin.ModelAdmin):
-    list_display = ("code", "service", "name", "email", "phone", "status")
+    list_display = (
+        "code",
+        "service",
+        "name",
+        "email",
+        "phone",
+        "status",
+    )
     list_filter = ("service", "status")
     actions = ("cancel_service_order", "done_service_order")
 
@@ -53,7 +62,7 @@ class ServiceOrderAdmin(admin.ModelAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "user")
+    list_display = ("name", "price", "user", "mean_rating", "rating_count")
     list_filter = ("user",)
 
     def get_queryset(self, request):

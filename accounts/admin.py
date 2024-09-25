@@ -7,7 +7,7 @@ from .models import UserProfile
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ("user", "phone", "city", "state")
+    list_display = ("user", "phone", "city", "state", "mean_rating", "rating_count")
     readonly_fields = ("user",)
 
     def get_queryset(self, request: HttpRequest) -> QuerySet:
