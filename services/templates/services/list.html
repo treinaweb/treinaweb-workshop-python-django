@@ -20,21 +20,21 @@
 <!-- filtro -->
 <section class="filtro">
     <div class="container">
-        <form class="search-banner">
-            <select name="" id="">
-                <option value="sp" selected>São Paulo</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="sp">São Paulo</option>
-                <option value="sp">São Paulo</option>
+        <form class="search-banner" method="GET">
+            <select name="city" id="">
+                <option value="" selected>Cidade</option>
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
             </select>
             <div class="filtro-buttons">
                 <div class="search-style">
                     <label for="search">
                         <img src="./src/img/icon-search.svg" alt="" width="20px">
                     </label>
-                    <input type="text" name="" id="search" placeholder="O que você está procurando...">
+                    <input type="text" value="{{ request.GET.q }}" name="q" id="search" placeholder="O que você está procurando...">
                 </div>
-                <button class="btn-green">
+                <button class="btn-green" type="submit">
                     Buscar
                 </button>
             </div>

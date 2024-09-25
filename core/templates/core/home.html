@@ -13,19 +13,19 @@
             SOLUÇÃO EM UM PASSO<br>
             PARA OS SEUS SERVIÇOS
         </h1>
-        <form class="search-banner">
-            <select name="" id="">
-                <option value="sp" selected>São Paulo</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="sp">São Paulo</option>
-                <option value="sp">São Paulo</option>
+        <form class="search-banner" method="GET" action="{% url "services:list" %}">
+            <select name="city" id="">
+                <option value="" selected>Cidade</option>
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
             </select>
             <div class="search-buttons">
                 <label for="search">
                     <img src="./src/img/icon-search.svg" alt="" width="20px">
                 </label>
-                <input type="text" name="" id="search" placeholder="O que você está procurando...">
-                <button>
+                <input type="text" name="q" id="search" placeholder="O que você está procurando...">
+                <button type="submit">
                     <img src="./src/img/icone-right-arrow.svg" alt="" width="25px">
                 </button>
             </div>
