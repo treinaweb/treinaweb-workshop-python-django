@@ -1,4 +1,3 @@
-from typing import Iterable
 from django.db import models
 from django.contrib.auth.models import User
 from uuid import uuid4
@@ -70,34 +69,39 @@ class ServiceOrderReview(models.Model):
         verbose_name = "Avaliação"
         verbose_name_plural = "Avaliações"
 
-    def save(self, *args, **kwargs):
+    def __notify_user(self):
         self.service_order.service.user.email_user(
             subject="Nova avaliação",
             message=f"Você recebeu uma nova avaliação para o serviço {self.service_order.service.name}",
         )
 
+    def __update_service_order_status(self):
         self.service_order.status = ServiceOrder.Status.FINISHED
         self.service_order.save()
 
-        # ((media atual * n) + nova avaliacao) / n + 1
-        self.service_order.service.mean_rating = (
-            (
-                self.service_order.service.mean_rating
-                * self.service_order.service.rating_count
-            )
-            + self.rating
-        ) / (self.service_order.service.rating_count + 1)
-        self.service_order.service.rating_count += 1
-        self.service_order.service.save()
+    def __update_service_rating(self):
+        service = self.service_order.service
+        service.mean_rating = (
+            (service.mean_rating * service.rating_count) + self.rating
+        ) / (service.rating_count + 1)
+        service.rating_count += 1
+        service.save()
 
-        self.service_order.service.user.profile.mean_rating = (
-            (
-                self.service_order.service.user.profile.mean_rating
-                * self.service_order.service.user.profile.rating_count
-            )
-            + self.rating
-        ) / (self.service_order.service.user.profile.rating_count + 1)
-        self.service_order.service.user.profile.rating_count += 1
-        self.service_order.service.user.profile.save()
+    def __update_profile_rating(self):
+        profile = self.service_order.service.user.profile
+        profile.mean_rating = (
+            (profile.mean_rating * profile.rating_count) + self.rating
+        ) / (profile.rating_count + 1)
+        profile.rating_count += 1
+        profile.save()
+
+    def save(self, *args, **kwargs):
+        self.__notify_user()
+
+        self.__update_service_order_status()
+
+        self.__update_service_rating()
+
+        self.__update_profile_rating()
 
         return super().save(args, kwargs)
