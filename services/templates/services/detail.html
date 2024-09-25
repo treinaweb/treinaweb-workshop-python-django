@@ -214,7 +214,7 @@
                             <h3>Nosso pacote</h3>
                             <span>R$ {{ service.price }}</span>
                         </div>
-                        <a href="./contratacao.html" class="btn-green">Agendar serviço</a>
+                        <a href="{% url "services:create_order" pk=service.pk %}" class="btn-green">Agendar serviço</a>
                     </div>
                     <div class="info-qtd">
                         <img src="./src/img/check-fill.svg" alt="">

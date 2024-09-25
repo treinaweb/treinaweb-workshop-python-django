@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.conf import settings
 
 from .models import Service
+from .forms import ServiceOrderForm
 
 
 def list(request):
@@ -31,3 +32,14 @@ def list(request):
 def detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, "services/detail.html", {"service": service})
+
+
+def create_order(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    form = ServiceOrderForm(request.POST or None, initial={"service": service})
+    if form.is_valid():
+        form.save()
+        return redirect("services:detail", pk=pk)
+    return render(
+        request, "services/create_order.html", {"service": service, "form": form}
+    )
