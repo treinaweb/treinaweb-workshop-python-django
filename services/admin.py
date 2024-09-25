@@ -3,10 +3,25 @@ from django.db.models.query import QuerySet
 from django.http import HttpRequest
 from django.core.mail import send_mail
 from django.conf import settings
+from django.urls import reverse
 
 from .models import Service, ServiceOrder, ServiceOrderReview
 
-admin.site.register(ServiceOrderReview)
+
+@admin.register(ServiceOrderReview)
+class ServiceOrderReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        "service_order__service__name",
+        "service_order__name",
+        "service_order__email",
+        "rating",
+    )
+
+    def get_queryset(self, request: HttpRequest) -> QuerySet:
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(service_order__service__user=request.user)
 
 
 @admin.register(ServiceOrder)
@@ -42,11 +57,16 @@ class ServiceOrderAdmin(admin.ModelAdmin):
         )
 
         for service_order in queryset:
+            relative_review_url = reverse(
+                "services:create_review", kwargs={"code": service_order.code}
+            )
+            absolute_review_url = request.build_absolute_uri(relative_review_url)
+
             message = f"Olá {service_order.name},\n\n"
             message += f"Sua ordem de serviço {service_order.code} foi finalizada.\n\n"
             message += f"Serviço: {service_order.service.name}\n"
             message += f"Preço: R$ {service_order.service.price:.2f}\n\n"
-            message += "Avalie o serviço em: ...\n\n"
+            message += f"Avalie o serviço em: {absolute_review_url}\n\n"
             message += "Atenciosamente,\n"
             message += "Equipe TWNinjas"
 
