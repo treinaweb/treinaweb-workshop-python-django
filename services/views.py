@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.conf import settings
 
@@ -26,3 +26,8 @@ def list(request):
     return render(
         request, "services/list.html", {"page_obj": page_obj, "cities": cities}
     )
+
+
+def detail(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    return render(request, "services/detail.html", {"service": service})

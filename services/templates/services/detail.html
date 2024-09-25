@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- info página -->
+<section class="pagina-info">
+    <div class="container">
+        <p>
+            {{ service.name }}
+        </p>
+    </div>
+</section>
+
+<main>
+    <div class="container pagina-review">
+        <header class="header-servico">
+            <div>
+                <img src="{{ service.user.profile.avatar.url }}" alt="" width="45px" height="45px" class="user-img">
+                <p>{{ service.user.get_full_name }}</p>
+            </div>
+            <div>
+                <img src="{% static "img/star-orange.svg" %}" alt="" width="20px" height="20px">
+                <p>4.8(421)</p>
+            </div>
+
+        </header>
+
+
+        <div class="review">
+            <div>
+                <img src="{{ service.picture.url }}" alt="" width="100%">
+                <div class="review-infos">
+                    <div id="informacoes" class="infos-paginas active-item">
+                        <p>Informações</p>
+                    </div>
+                    <div id="sobre-profissional" class="infos-paginas ">
+                        <p>Sobre o profissional</p>
+                    </div>
+                    <div id="reviews" class="infos-paginas">
+                        <p>Review</p>
+                    </div>
+                </div>
+                <div class="divisor-infos">
+                </div>
+                <section class="servico-secao servico-informacoes active-servico">
+                    {{ service.description|linebreaksbr }}
+                </section>
+
+                <section class="servico-secao servico-sobre-profissional">
+                    <div class="profissional-titulo">
+                        <img src="{{ service.user.profile.avatar.url }}" alt="" width="100px" height="100px"
+                            class="foto-usuario">
+                        <div class="avaliacao-profissional">
+                            <h3>{{ service.user.get_full_name }}</h3>
+                            <div class="avaliacao">
+                                <img src="{% static "img/star-orange.svg" %}" alt="">
+                                (125)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="informacoes-profissional">
+                        <div class="cidade">
+                            <h4>Cidade</h4>
+                            <p>{{ service.user.profile.city }}-{{ service.user.profile.state }}</p>
+                        </div>
+                        <div class="taxa">
+                            <h4>Taxa de conclusão do pedido</h4>
+                            <p>100%</p>
+                        </div>
+                        <div class="tempo-conta">
+                            <h4>Usuário desde</h4>
+                            <p>{{ service.user.date_joined.year }}</p>
+                        </div>
+                        <div class="servicos-realizados">
+                            <h4>Serviços realizados</h4>
+                            <p>251</p>
+                        </div>
+                        <div class="info-servicos-profissional">
+                            <p>
+                                {{ service.user.profile.about|linebreaksbr }}
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="servico-secao servico-reviews">
+                    <div class="profissional-titulo review-item">
+                        <img src="https://github.com/elton-fonseca.png" alt="" width="100px" height="100px"
+                            class="foto-usuario">
+                        <div class="avaliacao-profissional">
+                            <h3>Elton Fonseca</h3>
+                            <div class="avaliacao">
+                                <img src="./src/img/star-orange5.svg" alt="">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="profissional-titulo review-item">
+                        <img src="https://github.com/elton-fonseca.png" alt="" width="100px" height="100px"
+                            class="foto-usuario">
+                        <div class="avaliacao-profissional">
+                            <h3>Elton Fonseca</h3>
+                            <div class="avaliacao">
+                                <img src="./src/img/star-orange5.svg" alt="">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="profissional-titulo review-item">
+                        <img src="https://github.com/elton-fonseca.png" alt="" width="100px" height="100px"
+                            class="foto-usuario">
+                        <div class="avaliacao-profissional">
+                            <h3>Elton Fonseca</h3>
+                            <div class="avaliacao">
+                                <img src="./src/img/star-orange5.svg" alt="">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="profissional-titulo review-item">
+                        <img src="https://github.com/elton-fonseca.png" alt="" width="100px" height="100px"
+                            class="foto-usuario">
+                        <div class="avaliacao-profissional">
+                            <h3>Elton Fonseca</h3>
+                            <div class="avaliacao">
+                                <img src="./src/img/star-orange5.svg" alt="">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="outros">
+                    <header class="header-outros">
+                        <h2>Outros serviços <span>relacionados</span></h2>
+                        <a href="./lista-servicos.html">Explorar todos <img src="./src/img/arrow-right.svg"
+                                alt=""></a>
+                    </header>
+                    <div class="divisor-form">
+                        <div class="status"></div>
+                    </div>
+                    <div class="servicos-grid">
+                        <div class="servico-item">
+                            <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt=""
+                                width="100%" class="img-destaque">
+                            <div class="servico-body">
+                                <div class="avatar">
+                                    <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px"
+                                        class="img-user">
+                                    <p>Cleyson Lima</p>
+                                </div>
+                                <h3>Programação Front-end</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua.</p>
+                                <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
+                                <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
+                            </div>
+                        </div>
+                        <div class="servico-item">
+                            <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt=""
+                                width="100%" class="img-destaque">
+                            <div class="servico-body">
+                                <div class="avatar">
+                                    <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px"
+                                        class="img-user">
+                                    <p>Cleyson Lima</p>
+                                </div>
+                                <h3>Programação Front-end</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua.</p>
+                                <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
+                                <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <aside>
+                <div class="aside">
+                    <div class="bloco-valor">
+                        <div class="aside-titulo">
+                            <h3>Nosso pacote</h3>
+                            <span>R$ {{ service.price }}</span>
+                        </div>
+                        <a href="./contratacao.html" class="btn-green">Agendar serviço</a>
+                    </div>
+                    <div class="info-qtd">
+                        <img src="./src/img/check-fill.svg" alt="">
+                        <p>251 serviços realizados</p>
+                    </div>
+                    <div class="info-aprovacao">
+                        <img src="./src/img/star.svg" alt="">
+                        <p>Taxa de aprovação 95%</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    const itensPagina = document.querySelectorAll('.infos-paginas');
+
+    itensPagina.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            //remove a classe do elemento não clicado
+            itensPagina.forEach((el) => el.classList.remove('active-item'));
+
+            //adiciona a classe no elemento clicado
+            item.classList.add('active-item');
+
+            // pega o sufixo do item
+            const suffixItem = item.getAttribute('id')
+
+            // Seleciona a secao correspondente ao sufixo do elemento clicado
+            const secao = document.querySelector(`.servico-${suffixItem}`)
+            const secoes = document.querySelectorAll('.servico-secao')
+
+            //remove a classe do elemento não clicado
+            secoes.forEach((el) => el.classList.remove('active-servico'));
+            secao.classList.add('active-servico')
+        });
+    });
+</script>
+{% endblock scripts %}
