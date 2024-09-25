@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <!-- info página -->
+    <section class="pagina-info">
+        <div class="container">
+            <p>
+                Avaliar serviço - {{ service_order.service.name }}
+            </p>
+        </div>
+    </section>
+    <!-- Contato Form -->
+    <section class="avaliacao">
+        <div class="container">
+            <h2>Avaliação</h2>
+            <div class="divisor-form">
+                <div class="status"></div>
+            </div>
+            <div class="avaliar-grid">
+                <div class="avaliar-info">
+                    <img src="{{ service_order.service.picture.url }}" alt=""
+                        width="100%">
+                    <div class="avaliar-bloco">
+                        <img src="{{ service_order.service.user.profile.avatar.url }}" alt="" class="ft-usuario">
+                        <h3>{{ service_order.service.user.get_full_name }}</h3>
+                    </div>
+                    <p>
+                        {{ service_order.service.description }}
+                    </p>
+                </div>
+                <form id="rating-form" method="POST">
+                    {% csrf_token %}
+
+                    {{ form.service_order }}
+                    {{ form.comment }}
+                    {{ form.rating }}
+                    <div class="rating-buttom">
+                        <div class="star-rating">
+                            <img src="{% static "img/star-orange.svg" %}" alt="1 estrela" data-value="1">
+                            <img src="{% static "img/star-orange.svg" %}" alt="2 estrelas" data-value="2">
+                            <img src="{% static "img/star-orange.svg" %}" alt="3 estrelas" data-value="3">
+                            <img src="{% static "img/star-orange.svg" %}" alt="4 estrelas" data-value="4">
+                            <img src="{% static "img/star-orange.svg" %}" alt="5 estrelas" data-value="5">
+                        </div>
+                        <button class="btn-green" type="submit">Enviar Avaliação</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const stars = document.querySelectorAll('.star-rating img');
+        const ratingValue = document.getElementById('rating-value');
+        let selectedRating = 0;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(index);
+            });
+
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                ratingValue.value = selectedRating;
+                setSelectedStars(selectedRating);
+            });
+
+            star.addEventListener('mouseout', () => {
+                if (selectedRating > 0) {
+                    setSelectedStars(selectedRating);
+                } else {
+                    resetStars();
+                }
+            });
+        });
+
+        function highlightStars(index) {
+            resetStars();
+            for (let i = 0; i <= index; i++) {
+                stars[i].style.filter = 'none';
+            }
+        }
+
+        function resetStars() {
+            stars.forEach(star => {
+                star.style.filter = 'grayscale(100%)';
+                star.classList.remove('selected');
+            });
+        }
+
+        function setSelectedStars(rating) {
+            resetStars();
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.add('selected');
+                stars[i].style.filter = 'none';
+            }
+        }
+    });
+
+
+</script>
+{% endblock scripts %}

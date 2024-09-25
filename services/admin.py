@@ -38,7 +38,7 @@ class ServiceOrderAdmin(admin.ModelAdmin):
     @admin.action(description="Finalizar ordens de serviço")
     def done_service_order(self, request, queryset):
         queryset.filter(status=ServiceOrder.Status.OPEN).update(
-            status=ServiceOrder.Status.FINISHED
+            status=ServiceOrder.Status.DONE
         )
 
         for service_order in queryset:
