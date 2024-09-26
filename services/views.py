@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.conf import settings
 
-from .models import Service, ServiceOrder
+from .models import Service, ServiceOrder, ServiceOrderReview
 from .forms import ServiceOrderForm, ServiceOrderReviewForm
 
 
@@ -31,7 +31,10 @@ def list(request):
 
 def detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
-    return render(request, "services/detail.html", {"service": service})
+    reviews = ServiceOrderReview.objects.filter(service_order__service=service)
+    return render(
+        request, "services/detail.html", {"service": service, "reviews": reviews}
+    )
 
 
 def create_order(request, pk):
