@@ -67,7 +67,7 @@
                         </div>
                         <div class="taxa">
                             <h4>Taxa de conclusão do pedido</h4>
-                            <p>100%</p>
+                            <p>{{ conclusion_rate }} %</p>
                         </div>
                         <div class="tempo-conta">
                             <h4>Usuário desde</h4>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="servicos-realizados">
                             <h4>Serviços realizados</h4>
-                            <p>251</p>
+                            <p>{{ user_done_services }}</p>
                         </div>
                         <div class="info-servicos-profissional">
                             <p>
@@ -106,53 +106,6 @@
 
                 </section>
 
-                <section class="outros">
-                    <header class="header-outros">
-                        <h2>Outros serviços <span>relacionados</span></h2>
-                        <a href="./lista-servicos.html">Explorar todos <img src="./src/img/arrow-right.svg"
-                                alt=""></a>
-                    </header>
-                    <div class="divisor-form">
-                        <div class="status"></div>
-                    </div>
-                    <div class="servicos-grid">
-                        <div class="servico-item">
-                            <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt=""
-                                width="100%" class="img-destaque">
-                            <div class="servico-body">
-                                <div class="avatar">
-                                    <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px"
-                                        class="img-user">
-                                    <p>Cleyson Lima</p>
-                                </div>
-                                <h3>Programação Front-end</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua.</p>
-                                <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                                <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                            </div>
-                        </div>
-                        <div class="servico-item">
-                            <img src="https://bytesed.com/tf/qixer/qixer_html/assets/img/service/s1.jpg" alt=""
-                                width="100%" class="img-destaque">
-                            <div class="servico-body">
-                                <div class="avatar">
-                                    <img src="./src/img/cleyson-lima.jpg" alt="Foto professor" width="45px"
-                                        class="img-user">
-                                    <p>Cleyson Lima</p>
-                                </div>
-                                <h3>Programação Front-end</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua.</p>
-                                <a href="" class="servico-link">Iniciando em</a><span> R$100</span>
-                                <a href="./detalhes.html" class="servico-agendar">Ver detalhes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
             </div>
 
             <aside>
@@ -166,11 +119,11 @@
                     </div>
                     <div class="info-qtd">
                         <img src="{% static "img/check-fill.svg" %}" alt="">
-                        <p>251 serviços realizados</p>
+                        <p>{{ done_services }} serviços realizados</p>
                     </div>
                     <div class="info-aprovacao">
                         <img src="{% static "img/star.svg" %}" alt="">
-                        <p>Taxa de aprovação 95%</p>
+                        <p>Taxa de aprovação {{ approval_rate }}%</p>
                     </div>
                 </div>
             </aside>

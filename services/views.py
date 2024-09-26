@@ -4,6 +4,7 @@ from django.conf import settings
 
 from .models import Service, ServiceOrder, ServiceOrderReview
 from .forms import ServiceOrderForm, ServiceOrderReviewForm
+from .utils import calculate_approval_rate, calculate_conclusion_rate
 
 
 def list(request):
@@ -32,8 +33,27 @@ def list(request):
 def detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     reviews = ServiceOrderReview.objects.filter(service_order__service=service)
+    done_services = ServiceOrder.objects.filter(
+        service=service,
+        status__in=[ServiceOrder.Status.DONE, ServiceOrder.Status.FINISHED],
+    ).count()
+    user_done_services = ServiceOrder.objects.filter(
+        service__user=service.user,
+        status__in=[ServiceOrder.Status.DONE, ServiceOrder.Status.FINISHED],
+    ).count()
+    approval_rate = calculate_approval_rate(reviews)
+    conclusion_rate = calculate_conclusion_rate(service, user_done_services)
     return render(
-        request, "services/detail.html", {"service": service, "reviews": reviews}
+        request,
+        "services/detail.html",
+        {
+            "service": service,
+            "reviews": reviews,
+            "done_services": done_services,
+            "user_done_services": user_done_services,
+            "approval_rate": approval_rate,
+            "conclusion_rate": conclusion_rate,
+        },
     )
 
 
